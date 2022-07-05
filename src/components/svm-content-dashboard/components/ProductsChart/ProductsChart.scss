@@ -1,0 +1,108 @@
+.report__content__product{
+    box-sizing: border-box;
+    width: 60%;
+
+    background: #FFFFFF;
+
+    border: 1px solid #F0F0F0;
+    border-radius: 2px;
+
+    &__heading{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        height: 62px; 
+        padding: 0px 24px;
+        margin-bottom: 16px;
+        top: 0px; 
+
+        background: #FFFFFF;
+        border-radius: 2px 2px 0px 0px;
+
+        &__title{
+            display: flex;
+            align-items: center;
+
+            height: 48px;
+
+            background: #FFFFFF;
+            color: #1890FF;
+            box-shadow: inset 0px -2px 0px #1890FF;
+        }
+
+        &__filter{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            width: 250px;
+        }
+
+        &__calendar {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            height: 32px;
+            width: 130px;
+            padding: 0px 12px;
+            font-weight: 700;
+
+            border: 1px solid rgba(45, 53, 64, 0.2);
+            
+            & AiOutlineCalendar {
+                color:rgba(45, 53, 64, 0.2);
+                position: relative;
+                left: 0px;
+            }
+
+            & input{
+                border: none;
+                outline: none;
+                width: 90%;
+            }
+        } 
+
+        &__option {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 32px;
+            width: 70px;
+
+            border: 1px solid rgba(45, 53, 64, 0.2);
+            color:rgba(0, 0, 0, 0.65);
+            font-weight: 700;
+        }
+    }
+
+    &__body{
+        display: flex;
+        justify-content: center;
+        
+        background-color: #FFFFFF;
+
+        &__chart{
+            height: 220px;
+            width: 60%;
+            position: relative;
+        }
+
+        &__table{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            width: 200px;
+            padding-left: 10px;
+            padding-right: 20px;
+
+            border-left: 0.561682px solid #BBBBBB;
+        }
+    }
+}

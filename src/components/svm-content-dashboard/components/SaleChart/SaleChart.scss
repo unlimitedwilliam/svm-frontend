@@ -1,0 +1,110 @@
+.sale {
+    box-sizing: border-box;
+
+    width: calc(100vw - 70px);
+    height: 350px;
+    margin: 35px;
+    padding-left: 35px;
+    
+    background: #FFFFFF;
+    
+    border: 1px solid #F0F0F0;
+    border-radius: 2px;
+
+    &__heading{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        height: 62px; 
+        margin-bottom: 16px;
+        top: 0px; 
+
+        background: #FFFFFF;
+        border-radius: 2px 2px 0px 0px;
+
+        &__title{
+            display: flex;
+            align-items: center;
+    
+            height: 48px;
+    
+            background: #FFFFFF;
+            color: #1890FF;
+            box-shadow: inset 0px -2px 0px #1890FF;
+        }
+
+        &__func{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            width: 250px;
+        }
+
+        &__calendar {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            height: 32px;
+            width: 130px;
+            padding: 0px 12px;
+            font-weight: 700;
+
+            border: 1px solid rgba(45, 53, 64, 0.2);
+            
+            & AiOutlineCalendar {
+                color:rgba(45, 53, 64, 0.2);
+                position: relative;
+                left: 0px;
+            }
+
+            & input{
+                border: none;
+                outline: none;
+                width: 90%;
+            }
+        } 
+
+        &__option {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 32px;
+            width: 70px;
+
+            border: 1px solid rgba(45, 53, 64, 0.2);
+            color:rgba(0, 0, 0, 0.65);
+            font-weight: 700;
+        }
+
+        &__filter {
+            padding: 0px 12px;
+        }
+    }
+
+    &__body{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        &__chart{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 250px;
+            width: 500px;
+            position: static;
+        }
+
+        &__box{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
