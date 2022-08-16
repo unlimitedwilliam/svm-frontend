@@ -36,12 +36,7 @@ const PieOption: any = {
             return context.dataset.data[context.dataIndex];
           },
           formatter: (val: any, ctx: any) => {
-            let totalDataSum = 0; 
-            for (let i = 0; i < ctx.chart.data.datasets[ctx.datasetIndex].data.length; i++) {
-              if(ctx.chart.getDataVisibility(i) === true) {
-                totalDataSum += ctx.chart.data.datasets[ctx.datasetIndex].data[i];
-              }
-            };
+            let totalDataSum = ctx.chart._metasets[0].total;
             const percentage = val * 100 / totalDataSum;
             const roundedPercentage = Math.round(percentage * 100) / 100
             return `${roundedPercentage}%`

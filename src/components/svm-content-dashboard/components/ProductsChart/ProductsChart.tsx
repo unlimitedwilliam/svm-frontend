@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './ProductsChart.scss';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Doughnut } from 'react-chartjs-2';
+import { Pie } from 'react-chartjs-2';
 import data from '../../data/data';
 import DatePicker from 'react-datepicker';
 import {AiOutlineCalendar} from 'react-icons/ai';
@@ -66,16 +66,20 @@ const doughnutOptions: any = {
 const doughnutLabelsLine = [{
     id: 'doughnutLabelsLine',
     afterDraw(chart: any, args: any, options: any) {
-        const {ctx, chartArea: {width, height}} = chart;
+        const {ctx, chartArea: {top, bottom , left, right, width, height}} = chart;
         chart.data.datasets.forEach((dataset: any, index: number) => {
             chart.getDatasetMeta(index).data.forEach((datapoint: any, i: number) => {
-                if (chart.getDataVisibility(i) === true) {
-                    const {x, y} = datapoint.tooltipPosition();  
-                    const halfWidth = width/2; 
-                    const halfHeight = height/2;
+                console.log(chart.getDatasetMeta(index).data[i]);
+                if (chart.getDatasetMeta(index).data[i].circumference > 0) {
+                    const {x, y} = datapoint.tooltipPosition(); 
+                    const halfWidth = width/2 + 25; 
+                    const halfHeight = height/2 + 25;
+
+                    const a = x > halfWidth ? x - halfWidth : halfWidth - x; 
+                    const b = y > halfHeight ? y - halfHeight : halfHeight - y;
     
-                    const xLine = x >= halfWidth? x + 30 : x - 30;
-                    const yLine = y >= halfHeight? ( y <= (halfHeight+30)? y: y + 25) : y - 25;
+                    const xLine = x > halfWidth ? x + a + 10: x - a -10;
+                    const yLine = y > halfHeight ? y + b + 10 : y - b - 10;
     
                     ctx.beginPath();
                     ctx.moveTo(x,y);
@@ -124,7 +128,7 @@ const ProductsChart = () => {
         </div>
         <div className="report__content__product__body">
         <div className='report__content__product__body__chart'>
-            <Doughnut data={doughnutData} options={doughnutOptions} plugins={doughnutLabelsLine}/>
+            <Pie data={doughnutData} options={doughnutOptions} plugins={doughnutLabelsLine}/>
         </div>
         </div>
     </div>
